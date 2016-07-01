@@ -18,16 +18,23 @@ export class HeroesComponent implements OnInit {
   addingHero = false;
   selectedHero: Hero;
   error:any ;
+
   constructor(
     private router: Router,
     private heroService: HeroService) { }
+
+
   getHeroes() {
-    this.heroService.getHeroes().then(heroes => this.heroes = heroes);
+    this.heroes = this.heroService.getHeroes();
   }
+
   ngOnInit() {
     this.getHeroes();
   }
-  onSelect(hero: Hero) { this.selectedHero = hero; }
+  onSelect(hero: Hero) { 
+    this.selectedHero = hero; 
+    this.addingHero = false;
+  }
   gotoDetail() {
     this.router.navigate(['HeroDetail', { id: this.selectedHero.id }]);
   }
@@ -44,13 +51,8 @@ close(savedHero: Hero) {
 
 delete(hero: Hero, event: any) {
   event.stopPropagation();
-  this.heroService
-      .delete(hero)
-      .then(res => {
-        this.heroes = this.heroes.filter(h => h !== hero);
-        if (this.selectedHero === hero) { this.selectedHero = null; }
-      })
-      .catch(error => this.error = error); // TODO: Display error message
+  this.heroes = this.heroes.filter(h => h !== hero)
+      
 }
 
   
