@@ -1,6 +1,7 @@
 import { Component }       from '@angular/core';
 import { HeroService }     from './hero.service';
 import { HeroesComponent } from './heroes.component';
+import { ChangeDetectionComponent } from './changedetection.component';
 import { DashboardComponent } from './dashboard.component';
 import { RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS } from '@angular/router-deprecated';
 import { HeroDetailComponent } from './hero-detail.component';
@@ -14,6 +15,7 @@ template: `
   <nav>
     <a [routerLink]="['Dashboard']">Dashboard</a>
     <a [routerLink]="['Heroes']">Heroes</a>
+    <a [routerLink]="['ChangeDetection']">Change Detect</a>
   </nav>
   <router-outlet></router-outlet>
 `,
@@ -35,6 +37,11 @@ template: `
   path: '/detail/:id',
   name: 'HeroDetail',
   component: HeroDetailComponent
+},
+{
+  path: '/changedetect',
+  name: 'ChangeDetection',
+  component: ChangeDetectionComponent
 },
 {
   path: '/dashboard',
