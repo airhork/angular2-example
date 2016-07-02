@@ -17,6 +17,7 @@ export class HeroesComponent implements OnInit {
   heroes: Hero[];
   addingHero = false;
   selectedHero: Hero;
+  nextId = 21;
   error:any ;
 
   constructor(
@@ -31,6 +32,28 @@ export class HeroesComponent implements OnInit {
   ngOnInit() {
     this.getHeroes();
   }
+
+  makeid(){
+    var text = "";
+    var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+
+    for( var i=0; i < 5; i++ )
+        text += possible.charAt(Math.floor(Math.random() * possible.length));
+
+    return text;
+  }
+
+
+
+  shoot() {
+    console.log('in the shoot');
+    let temData:Hero[] = [];
+    for(var i = 0; i< 2000; i++) {
+      temData.push({id : this.nextId++, name : this.makeid()});
+    }
+    this.heroes = this.heroes.concat(temData);
+  }
+
   onSelect(hero: Hero) { 
     this.selectedHero = hero; 
     this.addingHero = false;
