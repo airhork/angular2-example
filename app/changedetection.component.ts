@@ -1,4 +1,4 @@
-import {  Component,  Directive, ChangeDetectionStrategy, ChangeDetectorRef }       from '@angular/core';
+import {  Component, Input, Directive, ChangeDetectionStrategy, ChangeDetectorRef }       from '@angular/core';
 
 
 
@@ -14,14 +14,28 @@ class Cmp {
   }
 }
 
+
+@Component({selector : 'auto', template:  'changed by button {{text}}'})
+class Auto {
+  @Input() text:string;
+}
+
 @Component({
   selector: 'app',
    template: `
-    <cmp><cmp>
+   <H1>Change detection test</H1>
+   <Input type="button" (click)="changeValue()" value="change"/>
+   <auto [text]="text"></auto>
+   <br/>
+   <cmp></cmp>
   `,
-  directives: [Cmp],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  directives: [Cmp,Auto]
 })
 export class ChangeDetectionComponent{
+  text = 'Auto Text';
+
+  changeValue () {
+    this.text = 'new text value';
+  }
 }
 
