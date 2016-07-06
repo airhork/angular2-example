@@ -1,8 +1,5 @@
 import { Injectable }    from '@angular/core';
-
-
 import { Hero } from './hero';
-
 
 var heroes = [
       {id: 11, name: 'Mr. Nice'},
@@ -15,13 +12,12 @@ var heroes = [
       {id: 18, name: 'Dr IQ'},
       {id: 19, name: 'Magma'},
       {id: 20, name: 'Tornado'}
-    ];
+];
 
 var nextid = 21;
 
 @Injectable()
 export class HeroService {
-
 
   getHeroes() {
     return heroes;

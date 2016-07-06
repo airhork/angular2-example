@@ -1,6 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { RouteParams } from '@angular/router-deprecated';
-
 import { Hero } from './hero';
 import { HeroService } from './hero.service';
 
@@ -10,11 +9,11 @@ import { HeroService } from './hero.service';
   templateUrl: 'app/hero-detail.component.html'
 })
 export class HeroDetailComponent implements OnInit {
+
   @Input() hero: Hero;
   @Output() close = new EventEmitter();
   error: any;
   navigated = false; // true if navigated here
-  
 
   constructor(
     private heroService: HeroService,
@@ -36,8 +35,6 @@ export class HeroDetailComponent implements OnInit {
     this.heroService.save(this.hero);
      this.goBack(this.hero);
   }
-  
-  
 
   goBack(savedHero: Hero = null) {
     this.close.emit(savedHero);

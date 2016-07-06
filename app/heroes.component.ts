@@ -5,8 +5,6 @@ import { HeroDetailComponent } from './hero-detail.component';
 import { HeroService } from './hero.service';
 
 
-
-
 @Component({
   selector: 'my-heroes',
   templateUrl: 'app/heroes.component.html',
@@ -22,7 +20,7 @@ export class HeroesComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private heroService: HeroService) { }
+    private heroService: HeroService) {}
 
 
   getHeroes() {
@@ -62,22 +60,20 @@ export class HeroesComponent implements OnInit {
     this.router.navigate(['HeroDetail', { id: this.selectedHero.id }]);
   }
 
-addHero() {
-  this.addingHero = true;
-  this.selectedHero = null;
-}
+	addHero() {
+		this.addingHero = true;
+		this.selectedHero = null;
+	}
 
-close(savedHero: Hero) {
-  this.addingHero = false;
-  if (savedHero) { this.getHeroes(); }
-}
+	close(savedHero: Hero) {
+		this.addingHero = false;
+		if (savedHero) { this.getHeroes(); }
+	}
 
-delete(hero: Hero, event: any) {
-  event.stopPropagation();
-  this.heroes = this.heroes.filter(h => h !== hero)
-      
-}
-
+	delete(hero: Hero, event: any) {
+		event.stopPropagation();
+		this.heroes = this.heroes.filter(h => h !== hero)
+	}
   
 }
 
