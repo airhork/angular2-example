@@ -1,4 +1,6 @@
 import {  Component, Input, Directive, ChangeDetectionStrategy, ChangeDetectorRef }       from '@angular/core';
+import {I18nPipe} from './i18n.pipe';
+import {ShareService} from './share.service';
 
 
 
@@ -28,13 +30,23 @@ class Auto {
    <auto [text]="text"></auto>
    <br/>
    <cmp></cmp>
+   <div>
+   {{'hello' | i18n}}
+   </div>
   `,
+  pipes : [I18nPipe],
+  providers: [ShareService],
   directives: [Cmp,Auto]
 })
 export class ChangeDetectionComponent{
   text = 'Auto Text';
+  
+
+  constructor(private shareService : ShareService) {
+  }
 
   changeValue () {
+    this.shareService.updateTitle('new i18n value');
     this.text = 'new text value';
   }
 }
