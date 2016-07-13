@@ -40,6 +40,36 @@ export class HeroService {
       heroes.push(hero);
     }
   }
+  
+
+ generateGrid( rowCount : number, columnCount:number) {
+    var valuePoints = [
+	"Daenerys", "Jon", "Sansa", "Arya", "Stannis", "Gregor", "Tyrion",
+	"Theon", "Joffrey", "Ramsay", "Cersei", "Bran", "Margaery",
+	"Melisandre", "Daario", "Jamie", "Eddard", "Myrcella", "Robb",
+	"Jorah", "Petyr", "Tommen", "Sandor", "Oberyn", "Drogo", "Ygritte"
+    ];
+    var valueIndex = 0;
+    var grid:Array<any> = [];
+    for ( var r = 0 ; r < rowCount ; r++ ) {
+	var row = {
+	    id: r,
+	    items: [] 
+	};
+	for ( var c = 0 ; c < columnCount ; c++ ) {
+	    row.items.push({
+		id: ( r + "-" + c ),
+		value: valuePoints[ valueIndex ],
+		isHiddenByFilter: false
+	    });
+	    if ( ++valueIndex >= valuePoints.length ) {
+		valueIndex = 0;
+	    }
+	}
+	grid.push( row );
+    }
+    return( grid );
+  }
 
   delete(hero: Hero) {
      heroes = heroes.filter(h => h !== hero)

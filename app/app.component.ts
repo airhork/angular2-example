@@ -3,6 +3,7 @@ import { HeroService }     from './hero.service';
 import { HeroesComponent } from './heroes.component';
 import { ChangeDetectionComponent } from './changedetection.component';
 import { ShareComponent} from './share.component';
+import { PerformanceComponent} from './performance.component';
 import { DashboardComponent } from './dashboard.component';
 import { RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS } from '@angular/router-deprecated';
 import { HeroDetailComponent } from './hero-detail.component';
@@ -18,6 +19,7 @@ import { HeroDetailComponent } from './hero-detail.component';
 			<a [routerLink]="['Heroes']">Heroes</a>
 			<a [routerLink]="['ChangeDetection']">Change Detect</a>
 			<a [routerLink]="['Share']">Service</a>
+			<a [routerLink]="['Performance']">BigTable</a>
 		</nav>
 		<router-outlet></router-outlet>
 	`,
@@ -48,6 +50,11 @@ import { HeroDetailComponent } from './hero-detail.component';
 		path: '/share',
 		name: 'Share',
 		component: ShareComponent
+	},
+	{
+		path: '/performance',
+		name: 'Performance',
+		component: PerformanceComponent
 	},
 	{
 		path: '/dashboard',
