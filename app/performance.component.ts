@@ -12,6 +12,7 @@ export class PerformanceComponent implements OnInit {
 
   form = {filter:''};
   grid : Array<any> = null;
+  visibleCount = 0;
   
 
   constructor(
