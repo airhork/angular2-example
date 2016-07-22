@@ -7,7 +7,6 @@ import { RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS } from '@angular/route
 import { HeroDetailComponent } from './hero-detail.component';
 
 
-
 @Component({
   selector: 'my-app',
 template: `
