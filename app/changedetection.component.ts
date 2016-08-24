@@ -1,5 +1,4 @@
-import {  Component, Input, Directive, ChangeDetectionStrategy, ChangeDetectorRef }       from '@angular/core';
-import {I18nPipe} from './i18n.pipe';
+import {  Component, Input, Directive, ChangeDetectionStrategy, ChangeDetectorRef }    from '@angular/core';
 import {ShareService} from './share.service';
 
 
@@ -23,7 +22,7 @@ class Auto {
 }
 
 @Component({
-  selector: 'app',
+  selector: 'cd',
    template: `
    <H1>Change detection test</H1>
    <Input type="button" (click)="changeValue()" value="change"/>
@@ -34,7 +33,6 @@ class Auto {
    {{'hello' | i18n}}
    </div>
   `,
-  pipes : [I18nPipe],
   providers: [ShareService],
   directives: [Cmp,Auto]
 })

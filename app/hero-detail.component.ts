@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { RouteParams } from '@angular/router-deprecated';
+import { ActivatedRoute, Params } from '@angular/router';
 import { Hero } from './hero';
 import { HeroService } from './hero.service';
 
@@ -17,18 +17,21 @@ export class HeroDetailComponent implements OnInit {
 
   constructor(
     private heroService: HeroService,
-    private routeParams: RouteParams) {
+    private routeParams: ActivatedRoute) {
   }
 
   ngOnInit() {
-    if (this.routeParams.get('id') !== null) {
-      let id = +this.routeParams.get('id');
+    this.routeParams.params.forEach((params: Params) => {
+      if (params['id'] !== undefined) {
+      let id = +params['id'];
       this.navigated = true;
       this.hero = this.heroService.getHero(id);
     } else {
       this.navigated = false;
       this.hero = new Hero();
     }
+    });
+
   }
 
   save() {

@@ -3,8 +3,8 @@ import {ShareService} from './share.service';
 
 
 
-@Component({selector: 'cmp',template: `value of next Id, increase two : {{nextValue}}`,providers : [ShareService] })
-class Cmp implements OnInit {
+@Component({selector: 'cmps',template: `value of next Id, increase two : {{nextValue}}`,providers : [ShareService] })
+class CmpShare implements OnInit {
 
   nextValue = 0;
   
@@ -23,8 +23,8 @@ class Cmp implements OnInit {
 }
 
 
-@Component({selector : 'auto', template:  'value of next Id {{nextValue}}', providers : [ShareService]})
-class Auto implements OnInit {
+@Component({selector : 'autos', template:  'value of next Id {{nextValue}}', providers : [ShareService]})
+class AutoShare implements OnInit {
   nextValue = 0;
   
   constructor(private shareService: ShareService) {
@@ -40,25 +40,25 @@ class Auto implements OnInit {
 }
 
 @Component({
-  selector: 'app',
+  selector: 'sc',
    template: `
    <H1>Service Test</H1>
    <Input type="button" (click)="changeValue()" value="change"/>
-   <auto></auto>
+   <autos></autos>
    <br/>
-   <cmp></cmp>
+   <cmps></cmps>
   `,
   //providers : [ShareService],
-  directives: [Cmp,Auto]
+  directives: [CmpShare,AutoShare]
 })
 export class ShareComponent{
   text = 'Auto Text';
 
-  @ViewChild(Cmp)
-  private cmp: Cmp;
+  @ViewChild(CmpShare)
+  private cmp: CmpShare;
 
-  @ViewChild(Auto)
-  private auto: Auto;
+  @ViewChild(AutoShare)
+  private auto: AutoShare;
 
   changeValue () {
     this.cmp.getNextValue();

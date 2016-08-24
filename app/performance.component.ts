@@ -1,12 +1,10 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { RouteParams } from '@angular/router-deprecated';
 import { HeroService } from './hero.service';
 
 @Component({
   selector: 'big-table',
   styleUrls : ['app/performance.component.css'],
   templateUrl: 'app/performance.component.html'
-
 })
 export class PerformanceComponent implements OnInit {
 
