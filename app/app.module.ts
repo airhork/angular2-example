@@ -25,6 +25,8 @@ import { HeroService }          from './hero.service';
     AppComponent,
     HeroesComponent,
     DashboardComponent,
+    ChangeDetectionComponent,
+    PerformanceComponent,
     I18nPipe,
     ShareComponent,
     HeroDetailComponent
