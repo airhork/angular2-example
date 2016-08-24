@@ -3,7 +3,6 @@ import { HeroService }     from './hero.service';
 import { HeroesComponent } from './heroes.component';
 import { ChangeDetectionComponent } from './changedetection.component';
 import { DashboardComponent } from './dashboard.component';
-import { RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS } from '@angular/router-deprecated';
 import { HeroDetailComponent } from './hero-detail.component';
 
 
@@ -12,44 +11,15 @@ import { HeroDetailComponent } from './hero-detail.component';
 template: `
   <h1>{{title}}</h1>
   <nav>
-    <a [routerLink]="['Dashboard']">Dashboard</a>
-    <a [routerLink]="['Heroes']">Heroes</a>
-    <a [routerLink]="['ChangeDetection']">Change Detect</a>
-  </nav>
+      <a routerLink="/dashboard" routerLinkActive="active">Dashboard</a>
+      <a routerLink="/heroes" routerLinkActive="active">Heroes</a>
+      <a routerLink="/changedetection" routerLinkActive="active">Change Detect</a>
+    </nav>
   <router-outlet></router-outlet>
 `,
-  directives: [ROUTER_DIRECTIVES],
-  styleUrls:  ['app/app.component.css'],
-  providers: [
-    ROUTER_PROVIDERS,
-    HeroService
-  ]
+  styleUrls:  ['app/app.component.css']
  
 })
-@RouteConfig([
-  {
-    path: '/heroes',
-    name: 'Heroes',
-    component: HeroesComponent
-  },
-{
-  path: '/detail/:id',
-  name: 'HeroDetail',
-  component: HeroDetailComponent
-},
-{
-  path: '/changedetect',
-  name: 'ChangeDetection',
-  component: ChangeDetectionComponent
-},
-{
-  path: '/dashboard',
-  name: 'Dashboard',
-  component: DashboardComponent,
-  useAsDefault: true
-}
-  
-])
 export class AppComponent {
   title = 'Tour of Heroes';
 }

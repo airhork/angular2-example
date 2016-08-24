@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router-deprecated';
+import { Router }            from '@angular/router';
 
 
 import { Hero } from './hero';
@@ -25,7 +25,7 @@ export class DashboardComponent implements OnInit {
   }
 
   gotoDetail(hero: Hero) {
-    let link = ['HeroDetail', { id: hero.id }];
+    let link = ['/detail', { id: hero.id }];
     this.router.navigate(link);
   }
   
