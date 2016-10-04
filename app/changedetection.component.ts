@@ -4,7 +4,7 @@ import {ShareService} from './share.service';
 
 
 @Component({selector: 'cmp',template: `Number of ticks: {{numberOfTicks}}`, changeDetection: ChangeDetectionStrategy.OnPush})
-class Cmp {
+export class Cmp {
   numberOfTicks = 0;
   
   constructor(private ref: ChangeDetectorRef) {
@@ -17,7 +17,7 @@ class Cmp {
 
 
 @Component({selector : 'auto', template:  'changed by button {{text}}'})
-class Auto {
+export class Auto {
   @Input() text:string;
 }
 
@@ -33,8 +33,7 @@ class Auto {
    {{'hello' | i18n}}
    </div>
   `,
-  providers: [ShareService],
-  directives: [Cmp,Auto]
+  providers : [ShareService]
 })
 export class ChangeDetectionComponent{
   text = 'Auto Text';

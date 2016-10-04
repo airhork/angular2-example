@@ -4,7 +4,7 @@ import {ShareService} from './share.service';
 
 
 @Component({selector: 'cmps',template: `value of next Id, increase two : {{nextValue}}`,providers : [ShareService] })
-class CmpShare implements OnInit {
+export class CmpShare implements OnInit {
 
   nextValue = 0;
   
@@ -24,7 +24,7 @@ class CmpShare implements OnInit {
 
 
 @Component({selector : 'autos', template:  'value of next Id {{nextValue}}', providers : [ShareService]})
-class AutoShare implements OnInit {
+export class AutoShare implements OnInit {
   nextValue = 0;
   
   constructor(private shareService: ShareService) {
@@ -47,9 +47,8 @@ class AutoShare implements OnInit {
    <autos></autos>
    <br/>
    <cmps></cmps>
-  `,
+  `
   //providers : [ShareService],
-  directives: [CmpShare,AutoShare]
 })
 export class ShareComponent{
   text = 'Auto Text';

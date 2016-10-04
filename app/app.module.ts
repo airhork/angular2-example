@@ -8,8 +8,8 @@ import { routing }        from './app.routing';
 import { HeroesComponent }      from './heroes.component';
 import { DashboardComponent }   from './dashboard.component';
 import { HeroDetailComponent }  from './hero-detail.component';
-import { ChangeDetectionComponent } from './changedetection.component';
-import { ShareComponent} from './share.component';
+import { ChangeDetectionComponent, Cmp, Auto } from './changedetection.component';
+import { ShareComponent, CmpShare, AutoShare} from './share.component';
 import { PerformanceComponent} from './performance.component';
 import { HeroService }          from './hero.service';
 
@@ -29,6 +29,10 @@ import { HeroService }          from './hero.service';
     PerformanceComponent,
     I18nPipe,
     ShareComponent,
+    Cmp,
+    Auto,
+    CmpShare,
+    AutoShare,
     HeroDetailComponent
   ],
   providers: [

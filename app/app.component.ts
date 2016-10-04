@@ -5,7 +5,6 @@ import { ChangeDetectionComponent } from './changedetection.component';
 import { ShareComponent} from './share.component';
 import { PerformanceComponent} from './performance.component';
 import { DashboardComponent } from './dashboard.component';
-import { RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS } from '@angular/router-deprecated';
 import { HeroDetailComponent } from './hero-detail.component';
 
 
