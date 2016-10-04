@@ -3,7 +3,7 @@ import {  Component,  Directive, ChangeDetectionStrategy, ChangeDetectorRef }   
 
 
 @Component({selector: 'cmp',template: `Number of ticks: {{numberOfTicks}}`, changeDetection: ChangeDetectionStrategy.OnPush})
-class Cmp {
+export class Cmp {
   numberOfTicks = 0;
   
   constructor(private ref: ChangeDetectorRef) {
@@ -19,7 +19,6 @@ class Cmp {
    template: `
     <cmp><cmp>
   `,
-  directives: [Cmp],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ChangeDetectionComponent{
