@@ -34,7 +34,9 @@ export class DashboardComponent implements OnInit {
   
   send() {
     console.log('send out the message');
-    document.getElementById("react").contentWindow.postMessage(this.toXeroString, "*");
+    var iframe = document.getElementById("react");
+    var iwindow = (<HTMLIFrameElement>iframe).contentWindow;
+    iwindow.postMessage(this.toXeroString, "*");
   }
  
   gotoDetail(hero: Hero) {
