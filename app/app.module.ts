@@ -12,6 +12,7 @@ import { ChangeDetectionComponent, Cmp, Auto } from './changedetection.component
 import { ShareComponent, CmpShare, AutoShare} from './share.component';
 import { PerformanceComponent} from './performance.component';
 import { HeroService }          from './hero.service';
+import {ShareService } from './share.service';
 
 
 @NgModule({
@@ -36,7 +37,8 @@ import { HeroService }          from './hero.service';
     HeroDetailComponent
   ],
   providers: [
-    HeroService
+    HeroService,
+    ShareService
   ],
   bootstrap: [ AppComponent ]
 })
